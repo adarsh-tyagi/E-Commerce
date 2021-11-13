@@ -154,43 +154,48 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 // get all users (for admin)
 exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
   const users = await User.find();
-  res.status(200).json({ success: true, users });
+  res.status(200).json({ success: true, count: users.length, users });
 });
 
 // get single user (for admin)
-exports.getSingleUser = catchAsyncErrors(async(req, res, next) => {
-  const user = await User.findById(req.params.id)
-  if(!user){
-    return next(new ErrorHandler(`User does not exists with id ${req.params.id}`, 404))
+exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    return next(
+      new ErrorHandler(`User does not exists with id ${req.params.id}`, 404)
+    );
   }
   res.status(200).json({
-    success: true, user
-  })
-})
+    success: true,
+    user,
+  });
+});
 
 // update user Role (admin)
 exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
     email: req.body.email,
-    role: req.body.role
+    role: req.body.role,
   };
-  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+  const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
     new: true,
     runValidators: true,
     useFindAndModify: false,
   });
 
-  res.status(200).json({ success: true });
+  res.status(200).json({ success: true, message: "User role updated" });
 });
 
 // delete user (admin)
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
-  const user = await User.findById(req.params.id)
-  if(!user){
-    return next(new ErrorHandler(`User does not exist with id ${req.params.id}`, 404))
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    return next(
+      new ErrorHandler(`User does not exist with id ${req.params.id}`, 404)
+    );
   }
-  await user.remove()
+  await user.remove();
 
-  res.status(200).json({ success: true });
+  res.status(200).json({ success: true, message: `User deleted successfully` });
 });
