@@ -3,50 +3,48 @@ import { CgMouse } from "react-icons/all";
 import "./Home.css";
 import Product from "./Product";
 import MetaData from "../layout/MetaData";
-import {getProduct} from "../../actions/productAction"
-import {useSelector, useDispatch} from 'react-redux'
-
-const product = {
-  name: "IPhone X",
-  images: [
-    {
-      url: "https://drop.ndtv.com/TECH/product_database/images/913201720152AM_635_iphone_x.jpeg",
-    },
-  ],
-  price: "Rs. 60000",
-  _id: "421dqeg3ref",
-};
+import { getProduct } from "../../actions/productAction";
+import { useSelector, useDispatch } from "react-redux";
+import Loader from "../layout/Loader/Loader";
+import { useAlert } from "react-alert";
 
 function Home() {
+  const alert = useAlert();
   const dispatch = useDispatch();
+  const { loading, error, products } = useSelector(
+    (state) => state.products
+  );
 
   useEffect(() => {
-    dispatch(getProduct())
-  }, [dispatch])
+    if (error) {
+      return alert.error(error);
+    }
+    dispatch(getProduct());
+  }, [dispatch, error]);
 
   return (
     <React.Fragment>
-      <MetaData title="E-Commerce" />
-      <div className="banner">
-        <p>Welcome to E-Commerce</p>
-        <h1>Find Amazing Products here</h1>
-        <a href="#container">
-          <button>
-            Scroll <CgMouse />
-          </button>
-        </a>
-      </div>
-      <h2 className="homeHeading">Featured Products</h2>
-      <div className="container" id="container">
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <React.Fragment>
+          <MetaData title="E-Commerce" />
+          <div className="banner">
+            <p>Welcome to E-Commerce</p>
+            <h1>Find Amazing Products here</h1>
+            <a href="#container">
+              <button>
+                Scroll <CgMouse />
+              </button>
+            </a>
+          </div>
+          <h2 className="homeHeading">Featured Products</h2>
+          <div className="container" id="container">
+            {products &&
+              products.map((item) => <Product key={item._id} product={item} />)}
+          </div>
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 }

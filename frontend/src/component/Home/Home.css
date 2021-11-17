@@ -15,13 +15,14 @@
 }
 
 .banner > p{
-    font: 300 1.4vmax "Lucida Sans";
+    font: 300 1.4vmax;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .banner > a > button{
     margin-bottom: 5vmax;
     cursor: pointer;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: 1px solid white;
     border-radius: 0;
     padding: 1vmax;
