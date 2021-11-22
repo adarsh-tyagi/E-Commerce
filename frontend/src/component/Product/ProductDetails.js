@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductDetails } from "../../actions/productAction";
+import { clearErrors, getProductDetails } from "../../actions/productAction";
 import { useParams } from "react-router";
 import ReactStars from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard";
 import Loader from "../layout/Loader/Loader";
+import { useAlert } from "react-alert";
 
 function ProductDetails() {
   const dispatch = useDispatch();
+  const alert = useAlert();
   const { id } = useParams();
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -26,8 +28,12 @@ function ProductDetails() {
   console.log(options);
 
   useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
     dispatch(getProductDetails(id));
-  }, [dispatch, id]);
+  }, [dispatch, id, alert, error]);
 
   return (
     <React.Fragment>
