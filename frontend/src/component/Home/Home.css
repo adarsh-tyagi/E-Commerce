@@ -32,8 +32,6 @@
   font: 500 1.2rem "Roboto";
 }
 
-
-
 .banner > a > button:hover {
   background-color: rgba(255, 255, 255, 0);
   color: white;
@@ -66,8 +64,8 @@
     font-size: 1rem;
     padding: 0.3rem 0.55rem;
   }
-  .homeHeading{
-      font-size: 1.2rem;
+  .homeHeading {
+    font-size: 1.2rem;
   }
 }
 
@@ -88,6 +86,9 @@
   margin: 2vmax;
   transition: all 0.5s;
   padding-bottom: 0.5vmax;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.377);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.377);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.377);
 }
 
 .productCard > img {
@@ -121,8 +122,8 @@
 }
 
 .productCard:hover {
-  box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
-  transform: scale(1.15);
+  box-shadow: 0 0 8px 0px rgba(15, 15, 15, 0.26);
+  transform: scale(1.08);
 }
 
 @media screen and (max-width: 600px) {

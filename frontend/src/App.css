@@ -5,6 +5,7 @@
   scroll-behavior: smooth;
 }
 
+
 /* page vertical scrollbar style */
 /* width */
 ::-webkit-scrollbar {
@@ -27,31 +28,28 @@
   background: rgb(0, 0, 0);
 }
 
-
-
-input::-webkit-outer-spin-button, 
-input::-webkit-inner-spin-button{
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type="number"]{
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.reviews::-webkit-scrollbar{
+.reviews::-webkit-scrollbar {
   display: none;
 }
-.reviews{
+.reviews {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-
-.redColor{
+.redColor {
   color: red;
 }
 
-.greenColor{
+.greenColor {
   color: rgb(2, 170, 2);
 }
