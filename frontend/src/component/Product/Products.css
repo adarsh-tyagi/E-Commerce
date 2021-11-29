@@ -1,6 +1,6 @@
 .productsHeading {
   margin: 2vmax auto;
-  width: 15vw;
+  width: 50%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.171);
   padding: 2vmax;
   color: rgba(0, 0, 0, 0.678);
@@ -9,10 +9,22 @@
   text-align: center;
 }
 
+.parent {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 3rem;
+}
+
+.filterBox {
+  max-width: 300px;
+  width: 25%;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 7rem;
+  padding: 0 1rem 0 3rem;
   justify-content: center;
 }
 
@@ -20,6 +32,7 @@
   display: flex;
   justify-content: center;
   margin: 6vmax;
+  margin-bottom: 5rem;
 }
 
 .pagination {
@@ -69,17 +82,6 @@
   color: white;
 }
 
-.filterBox {
-  width: 10vmax;
-  position: absolute;
-  top: 10vmax;
-  left: 4vmax;
-}
-
-Slider{
-    color: tomato;
-}
-
 .category-link {
   list-style: none;
   font-size: 0.8rem;
@@ -97,4 +99,15 @@ Slider{
   color: tomato;
   font-weight: bold;
   font-size: 0.9rem;
+}
+
+@media (max-width: 650px) {
+  .parent {
+    flex-direction: column;
+    align-items: center;
+  }
+  .products {
+    padding: 1rem 0.5rem;
+    justify-content: space-evenly;
+  }
 }

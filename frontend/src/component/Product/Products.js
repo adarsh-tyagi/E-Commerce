@@ -10,6 +10,7 @@ import { useAlert } from "react-alert";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import MetaData from "../layout/MetaData";
 
 const theme = createTheme({
   components: {
@@ -48,6 +49,7 @@ function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 100000]);
   const [category, setCategory] = useState("");
+  const [ratings, setRatings] = useState(0);
 
   const { keyword } = useParams();
 
@@ -65,8 +67,8 @@ function Products() {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword, currentPage, price, category));
-  }, [dispatch, keyword, currentPage, alert, error, price, category]);
+    dispatch(getProduct(keyword, currentPage, price, category, ratings));
+  }, [dispatch, keyword, currentPage, alert, error, price, category, ratings]);
 
   return (
     <React.Fragment>
@@ -74,40 +76,57 @@ function Products() {
         <Loader />
       ) : (
         <React.Fragment>
+          <MetaData title="Products | E-Commerce" />
           <h2 className="productsHeading">Products</h2>
-          <div className="products">
-            {products &&
-              products.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
-          </div>
+          <div className="parent">
+            <div className="filterBox">
+              <Typography>Price</Typography>
+              <ThemeProvider theme={theme}>
+                <Slider
+                  value={price}
+                  onChange={priceHandler}
+                  valueLabelDisplay="auto"
+                  aria-labelledby="range-slider"
+                  size="small"
+                  min={0}
+                  max={100000}
+                />
+              </ThemeProvider>
 
-          <div className="filterBox">
-            <Typography>Price</Typography>
-            <ThemeProvider theme={theme}>
-              <Slider
-                value={price}
-                onChange={priceHandler}
-                valueLabelDisplay="auto"
-                aria-labelledby="range-slider"
-                size="small"
-                min={0}
-                max={100000}
-              />
-            </ThemeProvider>
+              <Typography>Categories</Typography>
+              <ul className="categoryBox">
+                {categories.map((cat) => (
+                  <li
+                    className={`category-link ${cat === category && "active"}`}
+                    key={cat}
+                    onClick={() => setCategory(cat)}
+                  >
+                    {cat}
+                  </li>
+                ))}
+              </ul>
 
-            <Typography>Categories</Typography>
-            <ul className="categoryBox">
-              {categories.map((cat) => (
-                <li
-                  className={`category-link ${cat === category && "active"}`}
-                  key={cat}
-                  onClick={() => setCategory(cat)}
-                >
-                  {cat}
-                </li>
-              ))}
-            </ul>
+              <Typography>Ratings above</Typography>
+              <ThemeProvider theme={theme}>
+                <Slider
+                  value={ratings}
+                  onChange={(e, newRatings) => {
+                    setRatings(newRatings);
+                  }}
+                  aria-labelledby="continuous-slider"
+                  min={0}
+                  max={5}
+                  valueLabelDisplay="auto"
+                  size="small"
+                />
+              </ThemeProvider>
+            </div>
+            <div className="products">
+              {products &&
+                products.map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))}
+            </div>
           </div>
 
           {resultPerPage < count && (

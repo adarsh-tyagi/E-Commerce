@@ -8,6 +8,7 @@ import ReactStars from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
+import MetaData from "../layout/MetaData";
 
 function ProductDetails() {
   const dispatch = useDispatch();
@@ -25,7 +26,6 @@ function ProductDetails() {
     value: product.ratings,
     isHalf: true,
   };
-  console.log(options);
 
   useEffect(() => {
     if (error) {
@@ -41,6 +41,7 @@ function ProductDetails() {
         <Loader />
       ) : (
         <React.Fragment>
+          <MetaData title={`${product.name} | E-Commerce`} />
           <div className="ProductDetails">
             <Carousel>
               {product.images &&
@@ -68,7 +69,7 @@ function ProductDetails() {
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button>-</button>
-                    <input value="1" type="number" />
+                    <input value="1" type="number" readOnly />
                     <button>+</button>
                   </div>{" "}
                   <button>Add to Cart</button>
@@ -91,7 +92,9 @@ function ProductDetails() {
           {product.reviews && product.reviews[0] ? (
             <div className="reviews">
               {product.reviews &&
-                product.reviews.map((review) => <ReviewCard review={review} />)}
+                product.reviews.map((review) => (
+                  <ReviewCard key={review._id} review={review} />
+                ))}
             </div>
           ) : (
             <p className="noReviews">No Reviews Yet</p>

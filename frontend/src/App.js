@@ -7,7 +7,8 @@ import Footer from "./component/layout/Footer/Footer";
 import Home from "./component/Home/Home";
 import ProductDetails from "./component/Product/ProductDetails";
 import Products from "./component/Product/Products";
-import Search from "./component/Product/Search"
+import Search from "./component/Product/Search";
+import HeaderNav from "./component/layout/Header/HeaderNav";
 
 function App() {
   React.useEffect(() => {
@@ -19,7 +20,7 @@ function App() {
   });
   return (
     <Router>
-      <Header />
+      <HeaderNav />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/product/:id" element={<ProductDetails />} />
