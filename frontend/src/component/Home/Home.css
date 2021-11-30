@@ -1,5 +1,5 @@
 .banner {
-  background-image: linear-gradient(to right, #635dc0, #3027ae);
+  background-image: linear-gradient(to right, #635dc0, #d960f7, rgb(216, 250, 137));
   height: 100vmin;
   display: flex;
   flex-direction: column;

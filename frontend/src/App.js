@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./component/layout/Header/Header";
+// import Header from "./component/layout/Header/Header";
 import webFont from "webfontloader";
 import Footer from "./component/layout/Footer/Footer";
 import Home from "./component/Home/Home";
@@ -9,6 +9,7 @@ import ProductDetails from "./component/Product/ProductDetails";
 import Products from "./component/Product/Products";
 import Search from "./component/Product/Search";
 import HeaderNav from "./component/layout/Header/HeaderNav";
+import LoginSignUp from "./component/User/LoginSignUp";
 
 function App() {
   React.useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/products" element={<Products />} />
         <Route path="/products/:keyword" element={<Products />} />
         <Route exact path="/search" element={<Search />} />
+        <Route exact="/login" element={<LoginSignUp />} />
       </Routes>
       <Footer />
     </Router>
