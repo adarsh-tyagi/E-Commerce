@@ -28,7 +28,7 @@ function App() {
         <Route exact path="/products" element={<Products />} />
         <Route path="/products/:keyword" element={<Products />} />
         <Route exact path="/search" element={<Search />} />
-        <Route exact="/login" element={<LoginSignUp />} />
+        <Route exact path="/login" element={<LoginSignUp />} />
       </Routes>
       <Footer />
     </Router>
