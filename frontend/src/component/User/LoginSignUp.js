@@ -7,14 +7,14 @@ import FaceIcon from "@mui/icons-material/Face";
 import { Link } from "react-router-dom";
 import Profile from "../../images/Profile.png";
 import { useDispatch, useSelector } from "react-redux";
-import { login, clearErrors } from "../../actions/userAction";
+import { login, clearErrors, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function LoginSignUp() {
   const dispatch = useDispatch();
   const alert = useAlert();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { loading, error, isAuthenticated } = useSelector(
     (state) => state.user
@@ -48,6 +48,7 @@ function LoginSignUp() {
     myForm.set("email", email);
     myForm.set("password", password);
     myForm.set("avatar", avatar);
+    dispatch(register(myForm));
   };
 
   const registerDataChange = (e) => {
@@ -87,8 +88,8 @@ function LoginSignUp() {
       alert.error(error);
       dispatch(clearErrors());
     }
-    if(isAuthenticated){
-      navigate("/account")
+    if (isAuthenticated) {
+      navigate("/account");
     }
   }, [dispatch, error, alert, isAuthenticated, navigate]);
 
@@ -136,6 +137,7 @@ function LoginSignUp() {
               className="signUpForm"
               ref={registerTab}
               onSubmit={registerSubmit}
+              encType="multipart/form-data"
             >
               <div className="signUpName">
                 <FaceIcon />
@@ -189,5 +191,3 @@ function LoginSignUp() {
 }
 
 export default LoginSignUp;
-
-// disabled={loading ? true: false}

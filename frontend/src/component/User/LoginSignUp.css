@@ -104,7 +104,7 @@
 }
 
 #registerImage > img{
-    width: 3vmax;
+    width: 2.5rem;
     border-radius: 100%;
 }
 #registerImage > input{
