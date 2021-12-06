@@ -10,6 +10,8 @@ import Profile from "../../../images/Profile.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
+import { logout } from "../../../actions/userAction";
+import Backdrop from "@mui/material/Backdrop";
 
 function UserOptions({ user }) {
   const navigate = useNavigate();
@@ -47,12 +49,15 @@ function UserOptions({ user }) {
 
   return (
     <React.Fragment>
+      <Backdrop open={open} style={{ zIndex: "10" }} />
       <SpeedDial
         ariaLabel="SpeedDial tooltip example"
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
         direction="down"
+        className="speedDial"
+        style={{ zIndex: "10" }}
         icon={
           <img
             src={user.avatar.url ? user.avatar.url : Profile}
@@ -63,6 +68,7 @@ function UserOptions({ user }) {
       >
         {options.map((item) => (
           <SpeedDialAction
+            key={item.name}
             icon={item.icon}
             tooltipTitle={item.name}
             onClick={item.func}

@@ -67,3 +67,15 @@
     width: 300px;
   }
 }
+
+.speedDial{
+  position: fixed;
+  right: 25px;
+  top: 25px;
+}
+
+.speedDialIcon{
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+}

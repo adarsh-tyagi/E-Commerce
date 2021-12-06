@@ -12,11 +12,12 @@ import HeaderNav from "./component/layout/Header/HeaderNav";
 import LoginSignUp from "./component/User/LoginSignUp";
 import store from "./store";
 import { loadUser } from "./actions/userAction";
-import UserOptions from "./component/layout/Header/UserOptions"
+import UserOptions from "./component/layout/Header/UserOptions";
 import { useSelector } from "react-redux";
+import Profile from "./component/User/Profile";
 
 function App() {
-  const {isAuthenticated, user} = useSelector(state => state.user)
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
   React.useEffect(() => {
     webFont.load({
@@ -37,6 +38,7 @@ function App() {
         <Route path="/products/:keyword" element={<Products />} />
         <Route exact path="/search" element={<Search />} />
         <Route exact path="/login" element={<LoginSignUp />} />
+        <Route exact path="/account" element={<Profile />} />
       </Routes>
       <Footer />
     </Router>
