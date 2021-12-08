@@ -89,6 +89,7 @@ function LoginSignUp() {
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
+      alert.success("Logged in successfully");
       navigate("/account");
     }
   }, [dispatch, error, alert, isAuthenticated, navigate]);

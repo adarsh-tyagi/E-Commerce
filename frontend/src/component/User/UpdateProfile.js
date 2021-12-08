@@ -30,9 +30,6 @@ function UpdateProfile() {
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("avatar", avatar);
-    console.log("name: ", name);
-    console.log("email: ", email);
-    console.log("avatar: ", avatar);
     dispatch(updateProfile(myForm));
   };
 
@@ -76,7 +73,7 @@ function UpdateProfile() {
       ) : (
         <div className="updateProfileContainer">
           <div className="updateProfileBox">
-            <h2>Update Profile</h2>
+            <h4>Update Profile</h4>
             <form
               className="updateProfileForm"
               onSubmit={updateProfileSubmit}
@@ -101,7 +98,7 @@ function UpdateProfile() {
                   name="email"
                   required
                   value={email}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div id="updateProfileImage">
