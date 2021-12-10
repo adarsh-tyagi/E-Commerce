@@ -6,9 +6,10 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import ListAltIcon from "@mui/icons-material/ListAlt";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Profile from "../../../images/Profile.png";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import { logout } from "../../../actions/userAction";
 import Backdrop from "@mui/material/Backdrop";
@@ -18,10 +19,20 @@ function UserOptions({ user }) {
   const dispatch = useDispatch();
   const alert = useAlert();
   const [open, setOpen] = useState(false);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const options = [
     { icon: <ListAltIcon />, name: "Orders", func: orders },
     { icon: <PersonIcon />, name: "Profile", func: account },
+    {
+      icon: (
+        <ShoppingCartIcon
+          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+        />
+      ),
+      name: `Cart (${cartItems.length})`,
+      func: cart,
+    },
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
   ];
 
@@ -45,6 +56,9 @@ function UserOptions({ user }) {
   function logoutUser() {
     dispatch(logout());
     alert.success("You logged out!");
+  }
+  function cart() {
+    navigate("/cart");
   }
 
   return (
@@ -72,6 +86,7 @@ function UserOptions({ user }) {
             icon={item.icon}
             tooltipTitle={item.name}
             onClick={item.func}
+            tooltipOpen={window.innerWidth <= 600 ? true : false}
           />
         ))}
       </SpeedDial>
