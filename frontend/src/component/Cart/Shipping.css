@@ -1,0 +1,120 @@
+.shippingContainer{
+    width: 97vw; 
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.shippingBox{
+    background-color: white;
+    width: 30vw;
+    height: 90vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.shippingHeading{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.664);
+    font: 400 1.2rem "Roboto";
+    padding: 1.3vmax;
+    color: tomato;
+    border-bottom: 1px solid rgb(160, 67, 50);
+    width: 50%;
+    margin: auto;
+}
+
+.shippingForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 2vmax;
+    justify-content: space-evenly;
+    height: 80%;
+    transition: all 0.5s;
+}
+
+.shippingForm > div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.shippingForm > div > input, .shippingForm > div > select{
+    padding: 1vmax 4vmax;
+    padding-right: 1vmax;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    border-radius: 4px;
+    font: 300 0.8rem cursive;
+    outline: none;
+}
+
+.shippingForm > div > svg{
+    position: absolute;
+    transform: translateX(1vmax);
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.620);
+}
+
+.shippingBtn{
+    border: none;
+    background-color: tomato;
+    color: white;
+    font: 300 1rem "Roboto";
+    width: 100%;
+    padding: 1vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+    outline: none;
+    margin: 2vmax;
+    border-radius: 5px;
+}
+
+.shippingBtn:hover{
+    background-color: rgb(179, 66, 46);
+}
+
+@media (max-width: 600px){
+    .shippingBox{
+        width: 100vw;
+        height: 95vh;
+    }
+    .shippingHeading{
+        padding: 3vw;
+    }
+    .shippingForm{
+        padding: 8vw;
+    }
+    .shippingForm > div > input, .shippingForm > div > select{
+        padding: 2vw 8vw;
+    }
+    .shippingForm > div > svg{
+        transform: translateX(3vw);
+        font-size: 1.2rem;
+    }
+    .shippingBtn{
+        padding: 2vw;
+    }
+}
+
+
+/* CheckoutSteps Styles */
+
+.MuiStepConnector-line{
+    display: none !important;
+}
+
+.MuiStepConnector-root{
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.350);
+}
+
+.MuiStepConnector-active, .MuiStepConnector-completed{
+    background-color: tomato;
+}

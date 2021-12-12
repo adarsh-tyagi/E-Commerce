@@ -6,10 +6,13 @@ import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import {useNavigate} from "react-router"
+import MetaData from "../layout/MetaData";
 
 function Cart() {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+  const navigate = useNavigate()
 
   const increaseQuantity = (id, quantity, stock) => {
     const newQty = quantity + 1;
@@ -30,8 +33,13 @@ function Cart() {
     dispatch(removeItemsFromCart(id));
   };
 
+  const checkoutHandler = () => {
+    navigate("/login?redirect=/shipping")
+  }
+
   return (
     <Fragment>
+    <MetaData title="Cart" />
       {cartItems.length === 0 ? (
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
@@ -84,7 +92,7 @@ function Cart() {
             </div>
             <div></div>
             <div className="checkOutBtn">
-              <button>Check out</button>
+              <button onClick={checkoutHandler}>Check out</button>
             </div>
           </div>
         </div>

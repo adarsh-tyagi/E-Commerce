@@ -9,12 +9,13 @@ import Profile from "../../images/Profile.png";
 import { useDispatch, useSelector } from "react-redux";
 import { login, clearErrors, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function LoginSignUp() {
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { loading, error, isAuthenticated } = useSelector(
     (state) => state.user
@@ -83,16 +84,18 @@ function LoginSignUp() {
     }
   };
 
+  const redirect = location.search ? location.search.split("=")[1] : "/account";
+
   React.useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
-      alert.success("Logged in successfully");
-      navigate("/account");
+      // alert.success("Logged in successfully");
+      navigate(redirect);
     }
-  }, [dispatch, error, alert, isAuthenticated, navigate]);
+  }, [dispatch, error, alert, isAuthenticated, navigate, redirect]);
 
   return (
     <React.Fragment>
