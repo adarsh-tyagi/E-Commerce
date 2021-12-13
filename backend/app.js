@@ -14,11 +14,13 @@ app.use(fileUpload())
 const productRouter = require("./routes/productRoute")
 const userRouter = require("./routes/userRoute")
 const orderRouter = require("./routes/orderRoute")
+const paymentRouter = require("./routes/paymentRoute")
 
 
 app.use("/api/v1", productRouter)
 app.use("/api/v1", userRouter);
 app.use("/api/v1", orderRouter)
+app.use("/api/v1", paymentRouter)
 
 // middlewares
 app.use(errorMiddleware)
