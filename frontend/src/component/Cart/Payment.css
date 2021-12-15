@@ -1,0 +1,104 @@
+.paymentContainer {
+  display: grid;
+  place-items: center;
+  background-color: rgb(255, 255, 255);
+  height: 65vh;
+  margin: 2vmax;
+}
+
+.paymentForm {
+  width: 25%;
+  height: 100%;
+}
+
+.paymentForm > p {
+  font: 400 1.2rem "Roboto";
+  color: rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  padding: 1vmax 0;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.paymentForm > div {
+  display: flex;
+  align-items: center;
+  margin: 2vmax 0;
+}
+
+.paymentInput {
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  outline: none;
+}
+
+.paymentForm > div > svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.paymentFormBtn {
+  border: none;
+  background-color: tomato;
+  color: white;
+  font: 300 0.9rem "Roboto";
+  width: 100%;
+  padding: 1vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+  outline: none;
+  border-radius: 5px;
+}
+
+.paymentFormBtn:hover {
+  background-color: rgb(179, 66, 46);
+}
+
+@media (max-width: 600px) {
+  .paymentForm {
+    width: 90%;
+  }
+  .paymentForm > p {
+    width: 60%;
+  }
+}
+
+/* OrderSuccess style */
+
+.orderSuccess {
+  margin: auto;
+  text-align: center;
+  padding: 10vmax;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderSuccess > svg {
+  font-size: 8rem;
+  color: tomato;
+}
+
+.orderSuccess > p {
+  font-size: 2rem;
+}
+
+.orderSuccess > a {
+  background-color: rgba(51, 51, 51, 0.25);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  font: 400 1rem "Roboto";
+  text-decoration: none;
+  margin: 3vmax;
+}

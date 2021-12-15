@@ -23,10 +23,11 @@ import ResetPassword from "./component/User/ResetPassword";
 import Cart from "./component/Cart/Cart";
 import Shipping from "./component/Cart/Shipping";
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js";
-import Payment from "./component/Cart/Payment.js"
+import Payment from "./component/Cart/Payment.js";
 import axios from "axios";
-import {Elements} from "@stripe/react-stripe-js"
-import {loadStripe} from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import OrderSuccess from "./component/Cart/OrderSuccess.js"
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -34,7 +35,7 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v/stripeapikey");
+    const { data } = await axios.get("/api/v1/stripeapikey");
     setStripeApiKey(data.stripeApiKey);
   }
 
@@ -90,10 +91,22 @@ function App() {
           path="/order/confirm"
           element={<ProtectedRoute component={ConfirmOrder} />}
         />
+
         <Route
           exact
           path="/process/payment"
-          element={<ProtectedRoute component={Payment} />}
+          element={
+            stripeApiKey && (
+              <Elements stripe={loadStripe(stripeApiKey)}>
+                <ProtectedRoute component={Payment} />
+              </Elements>
+            )
+          }
+        />
+        <Route
+          exact
+          path="/success"
+          element={<ProtectedRoute component={OrderSuccess} />}
         />
       </Routes>
       <Footer />
