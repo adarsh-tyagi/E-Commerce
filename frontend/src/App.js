@@ -27,7 +27,8 @@ import Payment from "./component/Cart/Payment.js";
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import OrderSuccess from "./component/Cart/OrderSuccess.js"
+import OrderSuccess from "./component/Cart/OrderSuccess.js";
+import MyOrders from "./component/Order/MyOrders.js"
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -45,9 +46,10 @@ function App() {
         families: ["Roboto", "Droid Sans", "Chilanka"],
       },
     });
-    getStripeApiKey();
     store.dispatch(loadUser());
+    getStripeApiKey();
   }, []);
+
   return (
     <Router>
       <HeaderNav />
@@ -107,6 +109,11 @@ function App() {
           exact
           path="/success"
           element={<ProtectedRoute component={OrderSuccess} />}
+        />
+        <Route
+          exact
+          path="/orders"
+          element={<ProtectedRoute component={MyOrders} />}
         />
       </Routes>
       <Footer />
