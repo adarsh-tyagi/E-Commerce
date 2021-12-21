@@ -32,7 +32,7 @@ function Profile() {
               <div>
                 <h4>Full Name</h4>
                 <p>{user.name}</p>
-              </div>
+              </div> 
               <div>
                 <h4>Email</h4>
                 <p>{user.email}</p>

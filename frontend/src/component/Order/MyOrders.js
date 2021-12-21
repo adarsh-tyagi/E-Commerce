@@ -18,14 +18,12 @@ function MyOrders() {
   const { user } = useSelector((state) => state.user);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
-    { field: "status", headerName: "Status", minWidth: 150, flex: 0.5 },
+    { field: "id", headerName: "Order ID", minWidth: 250, flex: 1 },
     {
-      field: "itemsQty",
-      headerName: "Items Qty",
-      type: "number",
-      minWidth: 150,
-      flex: 0.3,
+      field: "status",
+      headerName: "Status",
+      minWidth: 130,
+      flex: 0.5,
       cellClassName: (params) => {
         return params.getValue(params.id, "status") === "Delivered"
           ? "greenColor"
@@ -33,17 +31,24 @@ function MyOrders() {
       },
     },
     {
+      field: "itemsQty",
+      headerName: "Items Qty",
+      type: "number",
+      minWidth: 125,
+      flex: 0.3,
+    },
+    {
       field: "amount",
       headerName: "Amount",
       type: "number",
-      minWidth: 270,
+      minWidth: 170,
       flex: 0.5,
     },
     {
       field: "actions",
       flex: 0.3,
       headerName: "Actions",
-      minWidth: 150,
+      minWidth: 100,
       type: "number",
       sortable: false,
       renderCell: (params) => {
@@ -83,6 +88,7 @@ function MyOrders() {
         <Loader />
       ) : (
         <div className="myOrdersPage">
+          <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
           <DataGrid
             rows={rows}
             columns={columns}
@@ -90,9 +96,7 @@ function MyOrders() {
             disableSelectionOnClick
             className="myOrdersTable"
             autoHeight
-          >
-            <Typography id="myOrdersHeading">${user.name}'s Orders</Typography>
-          </DataGrid>
+          />
         </div>
       )}
     </Fragment>

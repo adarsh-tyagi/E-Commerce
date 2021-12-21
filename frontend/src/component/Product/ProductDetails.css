@@ -45,9 +45,9 @@
   padding: 1vmax 0;
 }
 
-.detailsBlock-2 > span {
-  color: rgba(54, 54, 54, 0.582);
-  font: 200 14px cursive;
+.detailsBlock-2-span {
+  font: 200 12px cursive;
+  color: rgba(0, 0, 0, 0.650);
 }
 
 .detailsBlock-3 {
@@ -69,10 +69,11 @@
 .detailsBlock-3-1-1 > button {
   border: none;
   background-color: rgba(0, 0, 0, 0.616);
-  padding: 0.5vmax;
+  padding: 0.5vmax 0.75vmax;
   cursor: pointer;
   color: white;
   transition: all 0.5s;
+  font-weight: bold;
 }
 
 .detailsBlock-3-1-1 > button:hover {
@@ -85,7 +86,7 @@
   width: 1vmax;
   text-align: center;
   outline: none;
-  font: 400 0.8vmax;
+  font: 400 0.8rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(0, 0, 0, 0.74);
 }
@@ -96,10 +97,10 @@
   color: white;
   transition: all 0.5s;
   background-color: tomato;
-  font: 500 0.7vmax;
+  font: 500 0.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 20px;
-  padding: 0.5vmax 2vmax;
+  padding: 0.45rem 2vmax;
   margin: 1vmax;
   outline: none;
 }
@@ -119,23 +120,23 @@
 }
 
 .detailsBlock-4 {
-  color: rgba(0, 0, 0, 0.897);
+  color: rgba(0, 0, 0, 0.849);
   font: 500 1.2vmax;
   font-family: sans-serif;
 }
 
 .detailsBlock-4 > p {
-  color: rgba(0, 0, 0, 0.534);
-  font: 300 16px sans-serif;
+  color: rgba(0, 0, 0, 0.719);
+  font: 300 1rem sans-serif;
 }
 
 .submitReview {
   border: none;
   background-color: tomato;
-  font: 500 0.7vmax;
+  font: 500 0.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 20px;
-  padding: 0.6vmax 2vmax;
+  padding: 0.4rem 2vmax;
   margin: 1vmax 0;
   color: white;
   cursor: pointer;
@@ -146,6 +147,19 @@
 .submitReview:hover {
   background-color: rgb(197, 68, 45);
   transform: scale(1.1);
+}
+
+.submitDialog{
+  display: flex;
+  flex-direction: column;
+}
+
+.submitDialogTextArea{
+  border: 1px solid rgba(0, 0, 0, 0.080);
+  margin: 1vmax 0;
+  outline: none;
+  padding: 1rem;
+  font: 300 1rem "Roboto";
 }
 
 /* Reviews */
@@ -181,18 +195,19 @@
 }
 
 .reviewCard > img {
-  width: 5vmax;
+  width: 4rem;
 }
 
 .reviewCard > p {
   color: rgba(0, 0, 0, 0.83);
-  font: 600 0.9vmax;
+  font: 600 0.9rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.reviewCard > span {
-  color: rgba(54, 54, 54, 0.45);
-  font: 500 12px cursive;
+.reviewCardComment {
+  margin-top: 10px;
+  color: rgb(12, 12, 12);
+  font: 500 0.8rem monospace;
 }
 
 .noReviews {
@@ -219,14 +234,14 @@
 
   .detailsBlock-1 > p {
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .detailsBlock-2 {
     justify-content: center;
   }
 
-  .detailsBlock-2 > span {
+  .detailsBlock-2-span {
     font-size: 12px;
   }
 
@@ -272,11 +287,12 @@
   }
 
   .detailsBlock-4 {
-    font: 500 2.5vmax sans-serif;
+    font: 500 1rem sans-serif;
   }
 
   .detailsBlock-4 > p {
-    font: 300 14px sans-serif;
+    font: 500 1rem sans-serif;
+    color: #000000bb;
   }
 
   .submitReview {

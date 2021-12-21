@@ -100,9 +100,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 
-.productCard > div > span {
+.productCardSpan {
   margin: 0.5vmax;
   font: 300 0.8rm "Roboto";
 }

@@ -3,9 +3,9 @@
     max-width: 100%;
     padding: 0 7vmax;
     box-sizing: border-box;
-    background-color: rgb(235, 235, 235);
+    background-color: white;
     position: fixed;
-    top: 0;
+    top: 1rem;
     left: 0;
     height: 100vh;
     display: flex;
@@ -14,8 +14,8 @@
 
 #myOrdersHeading{
     text-align: center;
-    font: 400 1rem "Roboto";
-    padding: 0.5vmax;
+    font: 400 1.75rem "Roboto";
+    padding: 0.7rem;
     box-sizing: border-box;
     color: rgb(235, 235, 235);
     transition: all 0.5s;
@@ -28,12 +28,13 @@
 
 .myOrdersTable div{
     font: 300 0.8rem "Roboto";
-    color: rgba(0, 0, 0, 0.670);
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.900);
     border: none;
 }
 
 .myOrdersTable a{
-    color: rgba(0, 0, 0, 0.500);
+    color: rgba(0, 0, 0, 0.700);
     transition: all 0.5s;
 }
 

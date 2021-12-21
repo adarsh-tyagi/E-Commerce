@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import MetaData from "../layout/MetaData";
 
+
 const theme = createTheme({
   components: {
     MuiSlider: {
