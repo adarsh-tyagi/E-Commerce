@@ -113,7 +113,7 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
     count: product.reviews.length,
     reviews: product.reviews,
   });
-});
+}); 
 
 // Delete review
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
@@ -142,4 +142,17 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     success: true,
     message: "Review deleted.",
   });
+});
+
+// get all products (admin)
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+  const products = await Product.find()
+
+
+  res
+    .status(200)
+    .json({
+      success: true,
+      products,
+    });
 });

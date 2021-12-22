@@ -6,7 +6,7 @@ import { clearErrors, myOrders } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Typography } from "@mui/material";
+// import { Typography } from "@mui/material";
 import MetaData from "../layout/MetaData";
 import LaunchIcon from "@mui/icons-material/Launch";
 
@@ -88,7 +88,7 @@ function MyOrders() {
         <Loader />
       ) : (
         <div className="myOrdersPage">
-          <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
+          <h1 id="myOrdersHeading">{user.name}'s Orders</h1>
           <DataGrid
             rows={rows}
             columns={columns}

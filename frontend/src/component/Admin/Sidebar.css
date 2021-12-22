@@ -1,0 +1,44 @@
+.sidebar{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+}
+
+.sidebar > a:first-child{
+    padding: 0;
+}
+
+.sidebar a > h1{
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: all 0.5s;
+    color: tomato;
+}
+
+.sidebar a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.678);
+    font: 400 1rem "Roboto";
+    padding: 1.5rem;
+    transition: all 0.5s;
+}
+
+.sidebar a:hover{
+    color: tomato;
+    transform: scale(1.05);
+}
+
+.sidebar a> p{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a> p > svg{
+    margin-right: 0.5rem;
+}
+
+.MuiTypography-root{
+    background-color: #fff !important;
+}
