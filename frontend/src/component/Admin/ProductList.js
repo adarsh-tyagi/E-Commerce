@@ -36,7 +36,7 @@ function ProductList() {
       }
       if(isDeleted){
         alert.success("Product deleted successfully")
-        navigate("/admin/dashboard")
+        navigate("/admin/products")
         dispatch({type: DELETE_PRODUCT_RESET})
       }
       dispatch(getAdminProduct())
