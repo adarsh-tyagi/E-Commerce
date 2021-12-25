@@ -9,10 +9,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction";
 import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
+import { getAllOrders } from "../../actions/orderAction";
+import { getAllUsers } from "../../actions/userAction";
 
 function Dashboard() {
   const dispatch = useDispatch();
   const { loading, products } = useSelector((state) => state.products);
+  const { orders } = useSelector((state) => state.allOrders);
+  const { users } = useSelector((state) => state.allUsers);
 
   let outOfStock = 0;
   products &&
@@ -21,9 +25,18 @@ function Dashboard() {
         outOfStock += 1;
       }
     });
+  
+  let totalAmount = 0
+  orders && orders.forEach((order) => {
+    if(order.paymentInfo.status === "succeeded"){
+      totalAmount += order.totalPrice
+    }
+  })
 
   useEffect(() => {
     dispatch(getAdminProduct());
+    dispatch(getAllOrders());
+    dispatch(getAllUsers())
   }, [dispatch]);
 
   const lineState = {
@@ -33,7 +46,7 @@ function Dashboard() {
         label: "TOTAL AMOUNT",
         backgroundColor: ["tomato"],
         hoverBackgroundColor: ["rgb(197, 72, 49)"],
-        data: [0, 4000],
+        data: [0, totalAmount],
       },
     ],
   };
@@ -64,7 +77,7 @@ function Dashboard() {
               <div>
                 <p>
                   Total Amount <br />
-                  Rs. 2000
+                  Rs. {totalAmount}
                 </p>
               </div>
               <div className="dashboardSummaryBox2">
@@ -74,11 +87,11 @@ function Dashboard() {
                 </Link>
                 <Link to="/admin/orders">
                   <p>Orders</p>
-                  <p>40</p>
+                  <p>{orders?.length}</p>
                 </Link>
                 <Link to="/admin/users">
                   <p>Users</p>
-                  <p>10</p>
+                  <p>{users?.length}</p>
                 </Link>
               </div>
             </div>
