@@ -24,6 +24,17 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
       url: myCloud.secure_url,
     },
   });
+  try {
+    const message = `Hi ${name}, \n Welcome to the E-Commerce family. Now you are a part of our customer family. \n\n Happy Shopping \n\nE-Commerce\n Adarsh Tyagi`;
+    await sendEmail({
+      email: email,
+      subject: `Welcome to E-Commerce`,
+      message,
+    });
+  } catch (error) {
+    console.log("email not sent");
+  }
+
   sendToken(user, 201, res);
 });
 
@@ -222,8 +233,8 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  const imageId = user.avatar.public_id
-  await cloudinary.v2.uploader.destroy(imageId)
+  const imageId = user.avatar.public_id;
+  await cloudinary.v2.uploader.destroy(imageId);
 
   await user.remove();
 
