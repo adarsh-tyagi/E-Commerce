@@ -29,7 +29,7 @@
   padding: 0.5rem 0.75rem;
   transition: all 0.5s;
   /* width: 9vmax; */
-  font: 500 1.2rem "Roboto";
+  font: 500 1.2rem "Roboto"; 
 }
 
 .banner > a > button:hover {
@@ -41,12 +41,12 @@
   content: "";
   width: 100vw;
   height: 100vmin;
-  background-color: white;
+  background-color: black;
   position: absolute;
   top: 0%;
   left: 0;
   max-width: 100%;
-  clip-path: polygon(100% 70%, 0% 100%, 100% 100%);
+  clip-path: polygon(50% 77%, 72% 60%, 50% 100%, 27% 61%);
 }
 
 .homeHeading {

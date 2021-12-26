@@ -38,6 +38,9 @@ import OrderList from "./component/Admin/OrderList";
 import ProcessOrder from "./component/Admin/ProcessOrder";
 import UsersList from "./component/Admin/UsersList";
 import UpdateUser from "./component/Admin/UpdateUser";
+import ProductReviews from "./component/Admin/ProductReviews";
+import About from "./component/layout/About";
+import NotFound from "./component/layout/NotFound";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -59,12 +62,15 @@ function App() {
     getStripeApiKey();
   }, []);
 
+  window.addEventListener("contextmenu", (e) => e.preventDefault())
+
   return (
     <Router>
       <HeaderNav />
       {isAuthenticated && <UserOptions user={user} />}
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
         <Route exact path="/product/:id" element={<ProductDetails />} />
         <Route exact path="/products" element={<Products />} />
         <Route path="/products/:keyword" element={<Products />} />
@@ -169,6 +175,12 @@ function App() {
           path="/admin/user/:id"
           element={<ProtectedRoute isAdmin={true} component={UpdateUser} />}
         />
+        <Route
+          exact
+          path="/admin/reviews"
+          element={<ProtectedRoute isAdmin={true} component={ProductReviews} />}
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>

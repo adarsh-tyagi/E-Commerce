@@ -43,9 +43,7 @@ function HeaderNav() {
           <Link to="/products" onClick={() => setShow(false)} style={styles}>
             Products
           </Link>
-          <Link to="/contact" onClick={() => setShow(false)} style={styles}>
-            Contact
-          </Link>
+          
           <Link to="/about" onClick={() => setShow(false)} style={styles}>
             About
           </Link>

@@ -1,0 +1,37 @@
+.aboutContainer{
+    background-color: rgba(255, 255, 255, 0.418);
+    height: 100vh;
+    padding: 2rem 1rem ;
+}
+
+.aboutContainer > h1{
+    color: tomato;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.aboutContainer > p{
+    color: #202020;
+    text-align: center;
+    font: 400 1rem "Roboto";
+}
+
+.aboutContainer a{
+    text-decoration: none;
+    color: tomato;
+}
+.aboutContainer a:hover{
+    text-decoration: underline;
+    color: rgb(189, 33, 6);
+}
+
+.aboutContainer h2{
+    margin: 1.5rem auto;
+    font-family: cursive;
+    text-align: center;
+}
+
+.aboutContainer  span{
+    color: tomato;
+    font-size: 1.2rem;
+}
