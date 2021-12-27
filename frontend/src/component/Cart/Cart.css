@@ -90,7 +90,8 @@
   height: 8vmax;
   align-items: center;
   box-sizing: border-box;
-  font: 300 1.1rem cursive;
+  font: 300 1.1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   justify-content: flex-end;
   color: rgba(0, 0, 0, 0.75);
 }
@@ -188,7 +189,8 @@
 }
 
 .CartItemCard > div > a {
-  font: 300 0.9rem cursive;
+  font: 300 0.9rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(24, 24, 24, 0.815);
   text-decoration: none;
 }

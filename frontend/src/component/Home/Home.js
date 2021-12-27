@@ -38,6 +38,7 @@ function Home() {
                 Scroll <CgMouse />
               </button>
             </a>
+            <p>We sell items that you must have. Happy Shopping!</p>
           </div>
           <h2 className="homeHeading">Featured Products</h2>
           <div className="container" id="container">

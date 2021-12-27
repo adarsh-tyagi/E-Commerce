@@ -42,7 +42,8 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 0,0, 0.350);
     border-radius: 4px;
-    font: 300 0.8rem cursive;
+    font: 300 0.8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     outline: none;
 }
 
@@ -65,7 +66,8 @@
     height: 5vh;
     border: none;
     margin: 0%;
-    font: 400 0.8rem cursive;
+    font: 400 0.8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     transition: all 0.5s;
     padding: 0 1vmax;
     color: rgba(0, 0,0, 0.650);

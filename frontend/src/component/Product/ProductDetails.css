@@ -32,7 +32,8 @@
 
 .detailsBlock-1 > p {
   color: rgba(54, 54, 54, 0.582);
-  font: 200 12px cursive;
+  font: 200 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .detailsBlock-2 {
@@ -46,7 +47,8 @@
 }
 
 .detailsBlock-2-span {
-  font: 200 12px cursive;
+  font: 200 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(0, 0, 0, 0.650);
 }
 

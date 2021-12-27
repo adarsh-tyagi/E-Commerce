@@ -1,6 +1,7 @@
 .banner {
-  background-image: linear-gradient(to right, #635dc0, #d960f7, rgb(216, 250, 137));
+  background-image: linear-gradient(to right, #635dc0, #f761fc, rgb(199, 247, 88));
   height: 100vmin;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -15,9 +16,10 @@
 }
 
 .banner > p {
-  font: 300 1.2rem;
+  font: 400 1.7rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: black;
 }
 
 .banner > a > button {
@@ -37,7 +39,7 @@
   color: white;
 }
 
-.banner::after {
+/* .banner::after {
   content: "";
   width: 100vw;
   height: 100vmin;
@@ -47,7 +49,7 @@
   left: 0;
   max-width: 100%;
   clip-path: polygon(50% 77%, 72% 60%, 50% 100%, 27% 61%);
-}
+} */
 
 .homeHeading {
   text-align: center;
@@ -93,6 +95,7 @@
 
 .productCard > img {
   width: 100%;
+  height: 50%;
 }
 
 .productCard > div {
@@ -105,7 +108,7 @@
 
 .productCardSpan {
   margin: 0.5vmax;
-  font: 300 0.8rm "Roboto";
+  font: 300 0.8rem "Roboto";
 }
 
 .productCard > p {

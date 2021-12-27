@@ -17,7 +17,8 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.300);
     border-radius: 4px;
-    font: 300 0.8rem cursive;
+    font: 300 0.8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     outline: none;
 }
 
