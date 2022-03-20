@@ -49,7 +49,7 @@ function LoginSignUp() {
     myForm.set("email", email);
     myForm.set("password", password);
     myForm.set("avatar", avatar);
-    dispatch(register(myForm));
+    dispatch(register( myForm ));
   };
 
   const registerDataChange = (e) => {
@@ -183,6 +183,7 @@ function LoginSignUp() {
                   name="avatar"
                   accept="image/*"
                   onChange={registerDataChange}
+                  required
                 />
               </div>
               <input type="submit" value="Register" className="signUpBtn" />
